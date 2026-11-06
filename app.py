@@ -17,6 +17,7 @@ from sklearn.metrics import (
     average_precision_score
 )
 
+st.set_page_config(page_title="Wine Quality", page_icon="🍷", layout="wide")
 APP_DIR = Path(__file__).parent
 
 
@@ -61,7 +62,7 @@ X_test = test[feature_cols]
 y_test = test["target"]
 y_proba = get_test_proba(model, X_test)
 
-st.set_page_config(page_title="Wine Quality", page_icon="🍷", layout="wide")
+
 st.title("Оценка качества вина")
 
 threshold = st.sidebar.slider(
@@ -97,13 +98,24 @@ with tab1:
             if min_value == max_value:
                 values[col] = min_value
             else:
-                values[col] = st.slider(
-                    col,
-                    min_value=min_value,
-                    max_value=max_value,
-                    value=median_value,
-                    key=f"wine_{col}"
-                )
+                if col == "density":
+                    values[col] = st.slider(
+                        col,
+                        min_value=min_value,
+                        max_value=max_value,
+                        value=median_value,
+                        step=0.0001,
+                        format="%.5f",
+                        key=f"wine_{col}"
+                    )
+                else:
+                    values[col] = st.slider(
+                        col,
+                        min_value=min_value,
+                        max_value=max_value,
+                        value=median_value,
+                        key=f"wine_{col}"
+                    )
 
     if st.button("Оценить вино"):
         wine = pd.DataFrame([values], columns=feature_cols)
