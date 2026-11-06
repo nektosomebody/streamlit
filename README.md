@@ -1,4 +1,4 @@
-# Wine Quality — приложение для оценки качества вина
+# HW3 Streamlit
 
 ## Установка и локальный запуск
 
@@ -49,7 +49,7 @@ wine_app/
 
 ## Деплой на Streamlit Community Cloud
 
-Приложение доступно по публичной ссылке: https://app-5upcmci9npat7tb2kn3dyf.streamlit.app/
+Приложение доступно по ссылке: https://app-5upcmci9npat7tb2kn3dyf.streamlit.app/
 
 ## Ответ на вопрос задания 4.5
 ### Почему для модели используется `st.cache_resource`, а для таблиц – `st.cache_data`? Что изменится, если вызвать `joblib.load` без декоратора?
