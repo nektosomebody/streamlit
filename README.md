@@ -42,7 +42,7 @@ wine_app/
 
 ## Деплой на Streamlit Community Cloud
 
-Приложение доступно по публичной ссылке: 
+Приложение доступно по публичной ссылке: https://app-5upcmci9npat7tb2kn3dyf.streamlit.app/
 
 ### Почему используется `st.cache_resource` для модели и `st.cache_data` для таблиц?
 
